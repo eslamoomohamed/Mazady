@@ -12,3 +12,6 @@
 "profile_scene.follower_text" = "Followers";
 "profile_scene.products_text" = "Products";
 "profile_scene.reviews_text" = "Reviews";
+"profile_scene.language.change_language_text" = "Language";
+"profile_scene.product.price_text" = "Price";
+"profile_scene.top.tags_text" = "Tags";

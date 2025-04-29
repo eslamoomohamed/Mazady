@@ -8,6 +8,7 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    var logResponse: Bool { set get }
-    func executeRequest<T: Decodable>(_ request: NetworkRequest, completion: @escaping (Result<T, HTTPNetworkError>) -> Void)
+    var logResponse: Bool { get set }
+
+    func executeRequest<T: Decodable>(_ request: NetworkRequest) async throws -> T
 }

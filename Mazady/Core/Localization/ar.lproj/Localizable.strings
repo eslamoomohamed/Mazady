@@ -12,3 +12,6 @@
 "profile_scene.follower_text" = "المتابِعون";
 "profile_scene.products_text" = "المنتجات";
 "profile_scene.reviews_text" = "المراجعات";
+"profile_scene.language.change_language_text" = "اللغه";
+"profile_scene.product.price_text" = "السعر";
+"profile_scene.top.tags_text" = "الاشارات";

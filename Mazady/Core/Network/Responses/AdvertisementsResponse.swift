@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct AdvertisementsResponse: Codable {
+struct AdvertisementsResponse: Codable, Hashable {
     let advertisements: [Advertisement]
 }
 
-struct Advertisement: Codable {
+struct Advertisement: Codable, Hashable {
     let id: Int
     let image: String
 }

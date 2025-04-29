@@ -10,13 +10,14 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var currentScene: UIScene?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard (scene is UIWindowScene) else { return }
+
+        currentScene = scene
+        initApp()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +51,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+//MARK: - Private Methods
+extension SceneDelegate {
+    
+    private func initApp() {
+        LocalizationManager.shared.delegate = self
+        LocalizationManager.shared.setAppInitLanguage()
+    }
+}
+
+//MARK: - LocalizationDelegate
+extension SceneDelegate: LocalizationDelegate {
+    
+    func setRootWithTransition() {
+        let tabBarController = MainTabBarController()
+        setRootViewController(tabBarController)
+        UIView.transition(with: self.window!, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+    }
+
+    func setRootViewController(_ viewController: UITabBarController) {
+        guard let windowScene = (currentScene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+    }
+}

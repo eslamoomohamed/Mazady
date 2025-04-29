@@ -11,7 +11,7 @@ struct AllTagsResponse: Codable {
     let tags: [Tag]
 }
 
-struct Tag: Codable {
+struct Tag: Codable, Hashable {
     let id: Int
     let name: String
 }
