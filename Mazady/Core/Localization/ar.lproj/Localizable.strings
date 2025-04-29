@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+ Mazady
+
+ Created by eslam mohamed on 29/04/2025.
+  
+*/
+
+// MARK: Profile scene
+
+"profile_scene.following_text" = "المتابَعون";
+"profile_scene.follower_text" = "المتابِعون";
+"profile_scene.products_text" = "المنتجات";
+"profile_scene.reviews_text" = "المراجعات";
